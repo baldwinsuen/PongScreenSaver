@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE4D6539281D909C00C3FB3C /* PongScreenSaverView.h in Headers */ = {isa = PBXBuildFile; fileRef = AE4D6538281D909C00C3FB3C /* PongScreenSaverView.h */; };
-		AE4D653B281D909C00C3FB3C /* PongScreenSaverView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4D653A281D909C00C3FB3C /* PongScreenSaverView.m */; };
+		AE4D6543281D91AB00C3FB3C /* PongScreenSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D6542281D91AB00C3FB3C /* PongScreenSaverView.swift */; };
+		AE4D6545281D93A300C3FB3C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE4D6544281D93A300C3FB3C /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AE4D6535281D909C00C3FB3C /* PongScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PongScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE4D6538281D909C00C3FB3C /* PongScreenSaverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PongScreenSaverView.h; sourceTree = "<group>"; };
-		AE4D653A281D909C00C3FB3C /* PongScreenSaverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PongScreenSaverView.m; sourceTree = "<group>"; };
+		AE4D6542281D91AB00C3FB3C /* PongScreenSaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PongScreenSaverView.swift; sourceTree = "<group>"; };
+		AE4D6544281D93A300C3FB3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,8 +47,8 @@
 		AE4D6537281D909C00C3FB3C /* PongScreenSaver */ = {
 			isa = PBXGroup;
 			children = (
-				AE4D6538281D909C00C3FB3C /* PongScreenSaverView.h */,
-				AE4D653A281D909C00C3FB3C /* PongScreenSaverView.m */,
+				AE4D6542281D91AB00C3FB3C /* PongScreenSaverView.swift */,
+				AE4D6544281D93A300C3FB3C /* Info.plist */,
 			);
 			path = PongScreenSaver;
 			sourceTree = "<group>";
@@ -60,7 +60,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE4D6539281D909C00C3FB3C /* PongScreenSaverView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +95,7 @@
 				TargetAttributes = {
 					AE4D6534281D909C00C3FB3C = {
 						CreatedOnToolsVersion = 13.3.1;
+						LastSwiftMigration = 1330;
 					};
 				};
 			};
@@ -122,6 +122,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE4D6545281D93A300C3FB3C /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +133,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE4D653B281D909C00C3FB3C /* PongScreenSaverView.m in Sources */,
+				AE4D6543281D91AB00C3FB3C /* PongScreenSaverView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +252,7 @@
 		AE4D653F281D909C00C3FB3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -258,10 +260,18 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = PongScreenSaverView;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = baldwinsuen.PongScreenSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PongScreenSaver/PongScreenSaver-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Debug;
@@ -269,6 +279,7 @@
 		AE4D6540281D909C00C3FB3C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -276,10 +287,17 @@
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = PongScreenSaverView;
 				INSTALL_PATH = "$(HOME)/Library/Screen Savers";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = baldwinsuen.PongScreenSaver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "PongScreenSaver/PongScreenSaver-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				WRAPPER_EXTENSION = saver;
 			};
 			name = Release;
