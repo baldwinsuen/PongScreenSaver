@@ -20,6 +20,23 @@ class PongScreenSaverView: ScreenSaverView {
     
     override init?(frame: NSRect, isPreview: Bool) {
         super.init(frame: frame, isPreview: isPreview)
+        
+        // initial ball position is in center of screen
+        ballPositon = CGPoint(x: frame.width / 2, y: frame/height / 2)
+        
+        // initial ball velocity set to a random vector with magnitude 10
+        ballVelocity = initialVelocity()
+    }
+    
+    // sets initial velocity of ball when object is instantiated
+    private func initialVelocity() -> CGVector {
+        let desiredVelocityMagnitude: CGFloat = 10
+        let xVelocity = CGFloat.random(in: 2.5...7.5)
+        let xSign: CGFloat = Bool.random() ? 1 : -1
+        // √(100 - xVelocity^2)
+        let yVelocity = sqrt(pow(desiredVelocityMagnitude, 2) - pow(xVelocity, 2))
+        let ySign: CGFloat = Bool.random() ? 1 : -1
+        return CGVector(dx: xVelocity * xSign, dy: yVelocity * ySign)
     }
     
     @available(*, unavailable)
