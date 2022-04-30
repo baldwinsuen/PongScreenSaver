@@ -39,6 +39,31 @@ class PongScreenSaverView: ScreenSaverView {
         return CGVector(dx: xVelocity * xSign, dy: yVelocity * ySign)
     }
     
+    // checks is x or y axis of the ball position with an offset of
+    // the radius of the ball is within the bounds of the screen
+    private func ballIsOOB() -> (xAxis: Bool, yAxis: Bool) {
+        let xAxisOOB =  (ballPosition.x - ballRadius) <= 0 ||
+                        (ballPosition.x + ballRadius >= bounds.width)
+        let yAxisOOB =  (ballPosition.y - ballRadius <= 0) ||
+                        (ballPosition.y - ballRadius >= bounds.width)
+        return (xAxisOOB, yAxisOOB)
+    }
+    
+    // checks if the ball has hit the paddle
+    // xBounds and yBounds set the bounds of the paddle in a 2D plane
+    // retValue is false if the ball has not hit the paddle
+    private func ballHitPaddle() -> Bool {
+        let xBounds = (lower: paddlePosition - paddleSize.width / 2,
+                       upper: paddlePosition + paddleSize.width / 2)
+        let yBounds = (lower: paddleBottomOffset - paddleSize.height / 2,
+                       upper: paddleBottomOffset + paddleSize.height / 2)
+        let retValue =  (ballPosition.x >= xBounds.lower) &&
+                        (ballPosition.x <= xBounds.upper) &&
+                        (ballPosition.y - ballRadius >= yBounds.lower) &&
+                        (ballPosition.y - ballRadius <= yBounds.upper)
+        return retValue
+    }
+    
     @available(*, unavailable)
     required init?(coder decoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
