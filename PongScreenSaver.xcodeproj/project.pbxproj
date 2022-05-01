@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		AE4D6543281D91AB00C3FB3C /* PongScreenSaverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4D6542281D91AB00C3FB3C /* PongScreenSaverView.swift */; };
 		AE4D6545281D93A300C3FB3C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE4D6544281D93A300C3FB3C /* Info.plist */; };
+		AE4D654C281E17C400C3FB3C /* PongScreenSaver-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = AE4D654B281E17C400C3FB3C /* PongScreenSaver-Bridging-Header.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AE4D6535281D909C00C3FB3C /* PongScreenSaver.saver */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PongScreenSaver.saver; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4D6542281D91AB00C3FB3C /* PongScreenSaverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PongScreenSaverView.swift; sourceTree = "<group>"; };
 		AE4D6544281D93A300C3FB3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE4D654B281E17C400C3FB3C /* PongScreenSaver-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PongScreenSaver-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			children = (
 				AE4D6542281D91AB00C3FB3C /* PongScreenSaverView.swift */,
 				AE4D6544281D93A300C3FB3C /* Info.plist */,
+				AE4D654B281E17C400C3FB3C /* PongScreenSaver-Bridging-Header.h */,
 			);
 			path = PongScreenSaver;
 			sourceTree = "<group>";
@@ -60,6 +63,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE4D654C281E17C400C3FB3C /* PongScreenSaver-Bridging-Header.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

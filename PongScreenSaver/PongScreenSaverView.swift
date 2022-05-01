@@ -22,7 +22,7 @@ class PongScreenSaverView: ScreenSaverView {
         super.init(frame: frame, isPreview: isPreview)
         
         // initial ball position is in center of screen
-        ballPositon = CGPoint(x: frame.width / 2, y: frame/height / 2)
+        ballPosition = CGPoint(x: frame.width / 2, y: frame.height / 2)
         
         // initial ball velocity set to a random vector with magnitude 10
         ballVelocity = initialVelocity()
@@ -72,9 +72,8 @@ class PongScreenSaverView: ScreenSaverView {
     
     // step: lifecycle
     
-    // TODO: revisit tutorial, stopped reading code at step 4
     override func draw(_ rect: NSRect) {
-        drawBackground(.white)
+        drawBackground(.black)
         drawBall()
         drawPaddle()
     }
@@ -95,7 +94,7 @@ class PongScreenSaverView: ScreenSaverView {
         let ball = NSBezierPath(roundedRect: ballRect,
                                 xRadius: ballRadius,
                                 yRadius: ballRadius)
-        NSColor.black.setFill()
+        NSColor.white.setFill()
         ball.fill()
     }
     
@@ -106,7 +105,7 @@ class PongScreenSaverView: ScreenSaverView {
                                 width: paddleSize.width,
                                 height: paddleSize.height)
         let paddle = NSBezierPath(rect: paddleRect)
-        NSColor.black.setFill()
+        NSColor.white.setFill()
         paddle.fill()
     }
     
