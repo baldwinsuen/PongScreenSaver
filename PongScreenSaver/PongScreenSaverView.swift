@@ -52,6 +52,7 @@ class PongScreenSaverView: ScreenSaverView {
     // checks if the ball has hit the paddle
     // xBounds and yBounds set the bounds of the paddle in a 2D plane
     // retValue is false if the ball has not hit the paddle
+    // TODO: improve logic for this
     private func ballHitPaddle() -> Bool {
         let xBounds = (lower: paddlePosition - paddleSize.width / 2,
                        upper: paddlePosition + paddleSize.width / 2)
@@ -71,13 +72,70 @@ class PongScreenSaverView: ScreenSaverView {
     
     // step: lifecycle
     
-    override func draw(_rect: NSRect) {
-        // draw single frame in this function
+    // TODO: revisit tutorial, stopped reading code at step 4
+    override func draw(_ rect: NSRect) {
+        drawBackground(.white)
+        drawBall()
+        drawPaddle()
+    }
+    
+    // TODO: read this
+    private func drawBackground(_ color: NSColor) {
+        let background = NSBezierPath(rect: bounds)
+        color.setFill()
+        background.fill()
+    }
+    
+    // TODO: read this
+    private func drawBall() {
+        let ballRect = NSRect(x: ballPosition.x - ballRadius,
+                              y: ballPosition.y - ballRadius,
+                              width: ballRadius * 2,
+                              height: ballRadius * 2)
+        let ball = NSBezierPath(roundedRect: ballRect,
+                                xRadius: ballRadius,
+                                yRadius: ballRadius)
+        NSColor.black.setFill()
+        ball.fill()
+    }
+    
+    // TODO: read this
+    private func drawPaddle() {
+        let paddleRect = NSRect(x: paddlePosition - paddleSize.width / 2,
+                                y: paddleBottomOffset - paddleSize.height / 2,
+                                width: paddleSize.width,
+                                height: paddleSize.height)
+        let paddle = NSBezierPath(rect: paddleRect)
+        NSColor.black.setFill()
+        paddle.fill()
     }
     
     override func animateOneFrame() {
         super.animateOneFrame()
         
-        // update the "state" of the screensaver with this function
+        let oobAxes = ballIsOOB()
+        if (oobAxes.xAxis) {
+            // bounce off the verticals in the opposite direction
+            ballVelocity.dx *= -1
+        }
+        if (oobAxes.yAxis) {
+            // bounce off the horizontals in the opposite direction
+            ballVelocity.dy *= -1
+        }
+        
+        let paddleContact = ballHitPaddle()
+        if (paddleContact) {
+            // ??????
+            // why are we changing the direction horizontally
+            // what happens if this is not here
+            ballVelocity.dy *= -1
+        }
+        
+        ballPosition.x += ballVelocity.dx
+        ballPosition.y += ballVelocity.dy
+        // the paddle will always track the ball
+        paddlePosition = ballPosition.x
+        
+        setNeedsDisplay(bounds)
     }
 }
