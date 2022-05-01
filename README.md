@@ -1,6 +1,6 @@
 # PongScreenSaver
 
-Custom ping pong screen saver project exclusively; written in Swift, exclusively for Mac.
+Custom ping pong screen saver project; written in Swift, exclusively for Mac.
 
 ### Bad Practices
 
